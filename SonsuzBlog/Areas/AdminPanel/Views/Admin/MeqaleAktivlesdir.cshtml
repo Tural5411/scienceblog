@@ -1,0 +1,67 @@
+﻿@model IEnumerable<SonsuzBlog.Models.tbl_post>
+
+@{
+    ViewBag.Title = "MeqaleAktivlesdir";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="letter-spacing:3px; font-size:large; font-weight:900; text-transform:uppercase;">Məqalə Aktivləşdirmə</h2>
+@if (TempData["InfoM"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <h4 style="font-size:20px; letter-spacing:3px; font-weight:900;" class="alert-heading">Uğurlu!</h4>
+        <p style="font-size:17px; letter-spacing:1px; font-weight:700;">@TempData["InfoM"]</p>
+        <hr>
+        <p style="font-size:17px; letter-spacing:1px; font-weight:700;" class="mb-0">Sayta keçid edərək baxa bilərsiniz</p>
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            <label>Kategoriya</label>
+        </th>
+        <th>
+            <label>Şəkil</label>
+        </th>
+        <th>
+            <label>Müəllif</label>
+        </th>
+        <th>
+            <label>Başlıq</label>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tarixi)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tbl_category.Ad)
+            </td>
+            <td>
+                <img src="@item.tbl_sekil.Boyuk" alt="Alternate Text" />
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tbl_users.Ad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Baslig)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Tarixi)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PostId }) |
+                @Html.ActionLink("Detal", "Details", new { id = item.PostId }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.PostId }) |
+                @Html.ActionLink("Təsdiqlə", "MeqaleTesdiqle", new { id = item.PostId })
+            </td>
+        </tr>
+    }
+
+</table>

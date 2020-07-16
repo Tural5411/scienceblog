@@ -1,0 +1,392 @@
+﻿<!DOCTYPE html>
+<html lang="zxx">
+
+<!-- Mirrored from tortoizthemes.com/magala-html/category-grid.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Apr 2020 12:57:40 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Page Title -->
+    <title>Sonsuzbilgi</title>
+
+    <!---Font Icon-->
+    <link rel="stylesheet" href="~/PublicFront/magala-html/assets/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="~/PublicFront/magala-html/assets/css/fontawesome.min.css">
+
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" href="~/PublicFront/magala-html/assets/images/favicon.ico">
+
+    <!-- Plugins css -->
+    <link rel="stylesheet" href="~/PublicFront/magala-html/assets/css/plugins.css">
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="~/PublicFront/magala-html/style.css">
+    <link href="~/PublicFront/magala-html/stylecomment.css" rel="stylesheet" />
+</head>
+<body>
+    <!--********************************************************-->
+    <!--********************* SITE HEADER **********************-->
+    <!--********************************************************-->
+    <header class="site-header header-style-two">
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            Start Header Top Navbar
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <div class="header-top-navbar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="top-navbar-left">
+                            <ul class="info">
+                                <li class="info-date">@DateTime.Now.ToShortDateString() <span style="padding:3px; text-transform:uppercase; font-weight:800;"> Saat-@DateTime.Now.ToShortTimeString()</span></li>
+                                <li class="temperature"><img src="~/PublicFront/magala-html/assets/images/icon/cloud.png" alt="icon">Dubai  37 °C</li>
+                            </ul>
+                        </div><!--~./ top-navbar-left ~-->
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="top-navbar-right">
+                            <div class="membar-signin">
+                                <ul>
+                                    @if (!User.Identity.IsAuthenticated)
+                                    {
+                                        <li><a style="text-transform:uppercase;" href="/Users/IstifadeciOl">İstifadəçi ol</a></li>
+                                    }
+                                    @if (User.IsInRole("Admin") || User.IsInRole("Yazar"))
+                                    {
+                                        <li><a style="text-transform:uppercase;" href="/AdminPanel/AdminHome/Index">Admin Panel</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a style="text-transform:uppercase;" href="/Users/MuellifOl">Müəllif ol</a></li>
+                                    }
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <li><a style="text-transform:uppercase;">@User.Identity.Name</a></li>
+                                        <li><a style="text-transform:uppercase;" href="/Users/Cixis">Çıxış</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a style="text-transform:uppercase;" href="/Users/Giris">Giris</a></li>
+                                    }
+                                </ul>
+                            </div><!--~./ membar-signin ~-->
+                            <div class="social-profile">
+                                <ul class="social-share-two">
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                </ul>
+                            </div><!--~./ social-profile ~-->
+                        </div><!--~./ top-navbar-right ~-->
+                    </div>
+                </div>
+            </div>
+        </div><!--~./ end header top navbar ~-->
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            Start Site Navigation
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <div class="site-navigation">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="navbar navbar-expand-lg navigation-area">
+                            <div class="site-logo-block">
+                                <a class="navbar-brand site-logo" href="/">
+                                    <img width="88" height="44" src="~/PublicFront/magala-html/assets/infinite_for_tural-0.png" alt="logo">
+                                </a>
+                            </div><!--~./ site-logo-block ~-->
+                            <div class="mainmenu-area">
+                                <nav class="menu">
+                                    <ul id="nav">
+                                        <li class="">
+                                            <a href="#">Ana Səhifə</a>
+                                        </li>
+                                        <li class="dropdown-trigger">
+                                            <a href="#">Kateqoriyalar</a>
+                                            <ul class="dropdown-content">
+                                                <li><a href="category-standard.html">Standard Post</a></li>
+                                                <li><a href="category-grid.html">Grid Post</a></li>
+                                                <li><a href="category-list.html">List Post</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown-trigger">
+                                            <a href="#">Yazarlar</a>
+                                            <span class="menu-label new">new</span>
+                                            <ul class="dropdown-content">
+                                                <li><a href="category-grid.html">Business</a></li>
+                                                <li><a href="category-list.html">Fashion</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Haqqımızda</a></li>
+                                        <li class="dropdown-trigger">
+                                            <a href="#">Əlaqə</a>
+                                            <span class="menu-label">Hot</span>
+                                            <ul class="dropdown-content">
+                                                <li><a href="category-standard.html">Post standard</a></li>
+                                                <li><a href="category-grid.html">Post Grid Two</a></li>
+                                                <li><a href="category-list.html">Post list Three</a></li>
+                                                <li><a href="post-details.html">Post details One</a></li>
+                                                <li><a href="post-details-two.html">Post details Two</a></li>
+                                                <li><a href="post-details-three.html">Post details Three</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </nav><!--/.menu-->
+                            </div><!--~./ mainmenu-wrap ~-->
+
+                            <div class="header-navigation-right">
+                                <div class="search-wrap">
+                                    <div class="search-btn">
+                                        <img src="~/PublicFront/magala-html/assets/images/icon/search.png" alt="icon">
+                                        <span>Axtar</span>
+                                    </div>
+                                    <div class="search-form">
+                                        <form action="#">
+                                            <input type="search" placeholder="Search">
+                                            <button type="submit"><i class='fa fa-search'></i></button>
+                                        </form>
+                                    </div>
+                                </div><!--~./ search-wrap ~-->
+                            </div><!--~./ header-navigation-right ~-->
+                        </div><!--~./ navigation-area ~-->
+                    </div>
+                </div>
+            </div>
+        </div><!--~./ site-navigation ~-->
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            Start Mobile Menu
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <div class="mobile-menu">
+            <a class="mobile-logo" href="index-2.html">
+                <img width="88" height="44" src="~/PublicFront/magala-html/assets/infinite_for_tural-0.png" alt="logo">
+            </a>
+        </div><!--~~./ end mobile menu ~~-->
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            Start Breaking News Area
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <div class="breaking-news-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col -12">
+                        @{
+                            Html.RenderAction("BreakingNews", "CategoryWidget");
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div><!--~./ end breaking news area ~-->
+    </header>
+    <!--~./ end site header ~-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Start Page Title Area
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    @RenderSection("PageTitle", false);
+
+    <!--~~./ end page title area ~~-->
+    <!--********************************************************-->
+    <!--********************* SITE CONTENT *********************-->
+    <!--********************************************************-->
+    <div class="site-content">
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            Start Main Wrapper
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <div class="main-wrapper ptb-80 style-two">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <!--~~~~~ Start Site Main ~~~~~-->
+                        <main class="site-main">
+                            <div class="row">
+                                <!--~~~~~ Start Post ~~~~~-->
+                                @RenderBody()
+                                <!--~./ end post ~-->
+                            </div>
+                        </main>
+                        <!--~./ end site main ~-->
+                        <!--~~~~~ Load More Area ~~~~~-->
+                        <div class="load-more-area text-center">
+                            <button class="btn btn-load-more loadmore">
+                                <i class="fa fa-spinner"></i>
+                                Daha çox
+                            </button><!--/#loadmore-->
+                            <span class="no-posts">No more posts</span>
+                        </div><!--/.load-more-area-->
+                    </div>
+
+                    <!--~~~~~ Start sidebar ~~~~~-->
+                    @{
+                        Html.RenderAction("AllWidgets", "Home");
+                    }<!--~./ end sidebar ~-->
+                </div>
+            </div>
+        </div><!--~./ end main wrapper ~-->
+    </div>
+    <!-- End site content -->
+    <!--********************************************************-->
+    <!--****************** MAGALA SIDE SIDEBAR *****************-->
+    <!--********************************************************-->
+    <!--~./ end magala side sidebar ~-->
+    <!--********************************************************-->
+    <!--********************** SITE FOOTER *********************-->
+    <!--********************************************************-->
+    <footer class="site-footer footer-default-style bg-black pt-80">
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            Start Footer Widget Area
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <div class="footer-widget-area pb-20">
+            <div class="container">
+                <div class="row">
+                    <!--~~~~~ Start Widget About us Info ~~~~~-->
+                    <div class="col-lg-4">
+                        <aside class="widget bt-about-us-widget">
+                            <div class="widget-content">
+                                <div class="about-logo">
+                                    <a href="/">
+                                        <img style="position:relative;top:-20px; " width="88" height="44" src="~/PublicFront/magala-html/assets/infinite_for_tural-0.png" alt="logo">
+                                    </a>
+                                </div>
+                                <p style="position:relative;top:-20px; ">Elm,texnologiya,təhsil,ədəbiyyat,tarix,incəsənət, keçmiş və gələcək ilə maraq edilən və bilinməyən doğruları ən xırda detallarına qədər araşdıran və sonda hərkəsin anlaya biləcəyi tərzdə qaynağa çevirən platformadır.</p>
+                                <ul style="position:relative;top:-20px; " class="social-share">
+                                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a class="google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a class="youtube" href="#"><i class="fa fa-youtube"></i></a></li>
+                                    <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </aside>
+                    </div><!--~./ end about us widget ~-->
+                    <!--~~~~~ Start Latest Posts Widget~~~~~-->
+                    <div class="col-lg-4">
+                        <aside class="widget latest-posts-widget">
+                            <div class="widget-content">
+                                <article class="post side-post">
+                                    <div class="thumb-wrap">
+                                        <a href="post-details-three.html">
+                                            <img src="~/PublicFront/magala-html/assets/images/widget/populer/2.jpg" alt="post">
+                                        </a>
+                                    </div><!--./ thumb-wrap -->
+                                    <div class="content-entry-wrap">
+                                        <h3 class="entry-title">
+                                            <a href="post-details-three.html">This gun is advertise as the most popular gun</a>
+                                        </h3><!--./ entry-title -->
+                                        <div class="entry-meta-content">
+                                            <div class="entry-date">
+                                                <span>July 24, 2019 </span>
+                                            </div><!--./ entry-date -->
+                                            <div class="entry-category">
+                                                <a class="cat" href="#">LifeStyle</a>
+                                            </div><!--./ entry-category -->
+                                        </div><!--./ entry-meta-content -->
+                                    </div>
+                                </article><!--./ end post -->
+
+                                <article class="post side-post">
+                                    <div class="thumb-wrap">
+                                        <a href="post-details-three.html">
+                                            <img src="~/PublicFront/magala-html/assets/images/widget/populer/3.jpg" alt="post">
+                                        </a>
+                                    </div><!--./ thumb-wrap -->
+                                    <div class="content-entry-wrap">
+                                        <h3 class="entry-title">
+                                            <a href="post-details-three.html">How to live with some vegeterian when you eat </a>
+                                        </h3><!--./ entry-title -->
+                                        <div class="entry-meta-content">
+                                            <div class="entry-date">
+                                                <span>July 24, 2019 </span>
+                                            </div><!--./ entry-date -->
+                                            <div class="entry-category">
+                                                <a class="cat" href="#">Gaming</a>
+                                            </div><!--./ entry-category -->
+                                        </div><!--./ entry-meta-content -->
+                                    </div>
+                                </article><!--./ end post -->
+                            </div>
+                        </aside>
+                    </div><!--~./ end latest posts widget ~-->
+                    <!--~~~~~ Start Widget categories ~~~~~-->
+                    <div class="col-lg-4">
+                        <div class="widget widget-categories">
+                            <div class="widget-content">
+                                <ul>
+                                    <li class="cat-item">
+                                        <a href="category-grid.html">Sport<span class="count">14</span></a>
+                                    </li>
+                                    <li class="cat-item">
+                                        <a href="category-grid.html">Health<span class="count">25</span></a>
+                                    </li>
+                                    <li class="cat-item">
+                                        <a href="category-grid.html">Business<span class="count">10</span></a>
+                                    </li>
+                                    <li class="cat-item">
+                                        <a href="category-grid.html">Lifestyle<span class="count">6</span></a>
+                                    </li>
+                                    <li class="cat-item">
+                                        <a href="category-grid.html">Fashion<span class="count">50</span></a>
+                                    </li>
+                                    <li class="cat-item">
+                                        <a href="category-grid.html">Food<span class="count">65</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!--~./ end widget address ~-->
+                </div>
+            </div>
+        </div>
+        <!--~./ end footer widgets area ~-->
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            Start Footer Bottom Area
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <div class="footer-bottom-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="copyright-text">
+                            <p>© Copyright 2019 Magala. All Rights Reserved</p>
+                        </div>
+                    </div><!--~./ end copyright ~-->
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul class="list">
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Private Policy</a></li>
+                                <li><a href="#">Support</a></li>
+                                <li><a href="#">Use Of Terms</a></li>
+                            </ul>
+                        </div><!--~./ end footer menu ~-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--~./ end footer bottom area ~-->
+    </footer>
+    <!--~./ end site footer ~-->
+    <!-- jQuery js -->
+    <script src="~/PublicFront/magala-html/assets/js/jquery.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="~/PublicFront/magala-html/assets/js/bootstrap.min.js"></script>
+    <!-- Popper js -->
+    <script src="~/PublicFront/magala-html/assets/js/popper.min.js"></script>
+    <!-- Owl carousel js -->
+    <script src="~/PublicFront/magala-html/assets/js/owl.carousel.min.js"></script>
+    <!-- Masonary js -->
+    <script src="~/PublicFront/magala-html/assets/js/masonary.min.js"></script>
+    <!-- News Ticker js -->
+    <script src="~/PublicFront/magala-html/assets/js/breaking-news-ticker.min.js"></script>
+    <!-- Trackpad Scroll js -->
+    <script src="~/PublicFront/magala-html/assets/js/jquery.trackpad-scroll-emulator.min.js"></script>
+    <!-- Sticky ResizeSensor js -->
+    <script src="~/PublicFront/magala-html/assets/js/ResizeSensor.min.js"></script>
+    <!-- Sticky Sidebar js -->
+    <script src="~/PublicFront/magala-html/assets/js/theia-sticky-sidebar.min.js"></script>
+    <!-- Plugin js -->
+    <script src="~/PublicFront/magala-html/assets/js/plugins.js"></script>
+    <!-- main js -->
+    <script src="~/PublicFront/magala-html/assets/js/main.js"></script>
+</body>
+
+<!-- Mirrored from tortoizthemes.com/magala-html/category-grid.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Apr 2020 12:58:17 GMT -->
+</html>

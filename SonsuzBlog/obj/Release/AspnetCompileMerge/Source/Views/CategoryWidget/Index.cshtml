@@ -1,0 +1,8 @@
+﻿@{
+    ViewBag.Title = "Kategoriya - ";
+    Layout = "~/Views/Shared/_LayoutCategory.cshtml";
+}
+
+@{ 
+    Html.RenderAction("PostListCat" , new { id=Model});
+}

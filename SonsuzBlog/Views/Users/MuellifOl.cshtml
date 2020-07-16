@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Title Page-->
+    <title>QEYDIYYAT</title>
+    <!-- Icons font CSS-->
+    <link href="~/PublicFront/magala-html/assets/css/fontawesome.all.min.css" rel="stylesheet" />
+    <link href="~/PublicFront/colorlib-regform-5/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <!-- Vendor CSS-->
+    <script src="~/PublicFront/Login_v1/vendor/select2/select2.min.js"></script>
+    <link href="~/PublicFront/colorlib-regform-5/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+    <!-- Main CSS-->
+    <link href="~/PublicFront/colorlib-regform-5/css/main.css" rel="stylesheet" media="all">
+</head>
+<body>
+    <div style="background:url(/Upload/logback2.jpg);background-size:cover; object-fit:cover; background-position:center center;" class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 style="letter-spacing:2px; font-weight:800; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" class="title">Müəllif Qeydiyyatı</h2>
+                </div>
+                <div style="background:rgba(255, 255, 255, 0.32);" class="card-body">
+                    <form action="/Users/MuellifOl" method="post">
+                        <div class="form-row m-b-55">
+                            <div class="name">Ad</div>
+                            <div class="value">
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="Ad">
+                                            <label class="label--desc">Adınız</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="Soyad">
+                                            <label class="label--desc">Soyadınız</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Login</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" name="Login">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Email</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="email" name="Mail">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Şifrə</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="password" name="Sifre">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Şifrə təkrar</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="password" name="Sifre">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Doğum tarixi</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="date" name="DogumTarixi">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row p-t-20">
+                            <label class="label label--block">Cinsiniz</label>
+                            <div class="p-t-15">
+                                <label class="radio-container m-r-55">
+                                    Qadın
+                                    <input type="radio" @*checked="checked"*@ name="rdqadin">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container">
+                                    Kişi
+                                    <input type="radio" name="rdkisi">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn--radius-2 btn--red" type="submit">Qeydiyyatdan keç</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Jquery JS-->
+    <script src="~/PublicFront/magala-html/assets/js/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="~/PublicFront/Login_v1/vendor/select2/select2.min.js"></script>
+    <script src="~/PublicFront/colorlib-regform-5/vendor/datepicker/moment.min.js"></script>
+    <script src="~/PublicFront/colorlib-regform-5/vendor/datepicker/daterangepicker.js"></script>
+    <!-- Main JS-->
+    <script src="~/PublicFront/colorlib-regform-5/js/global.js"></script>
+</body>
+</html>
+<!-- end document-->

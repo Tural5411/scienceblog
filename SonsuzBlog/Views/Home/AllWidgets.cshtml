@@ -1,0 +1,131 @@
+﻿<div class="col-lg-3">
+    <div class="sidebar">
+        <div class="sidebar-inner">
+            <!--~~~~~ Start Bt Social Widget~~~~~-->
+            <aside class="widget bt-socail-widget">
+                <div class="widget-content">
+                    <div class="bt-socail-profile">
+                        <a class="bt-facebook-icon icon" href="#" target="_blank">
+                            <span class="social-icon">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                            <span class="bt-count">30.2k</span>
+                            <span class="bt-media-type">Likes</span>
+                        </a>
+                    </div><!--~./ bt-socail-profile ~-->
+
+                    <div class="bt-socail-profile">
+                        <a class="bt-google-plus-icon icon" href="#" target="_blank">
+                            <span class="social-icon">
+                                <i class="fa fa-google-plus"></i>
+                            </span>
+                            <span class="bt-count">10.2k</span>
+                            <span class="bt-media-type">Followers</span>
+                        </a>
+                    </div><!--~./ bt-socail-profile ~-->
+
+                    <div class="bt-socail-profile">
+                        <a class="bt-twitter-icon icon" href="#" target="_blank">
+                            <span class="social-icon">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                            <span class="bt-count">62.4k</span>
+                            <span class="bt-media-type">Followers</span>
+                        </a>
+                    </div><!--~./ bt-socail-profile ~-->
+
+                    <div class="bt-socail-profile">
+                        <a class="bt-youtube-icon icon" href="#" target="_blank">
+                            <span class="social-icon">
+                                <i class="fa fa-youtube"></i>
+                            </span>
+                            <span class="bt-count">30.2k</span>
+                            <span class="bt-media-type">Subscrib</span>
+                        </a>
+                    </div><!--~./ bt-socail-profile ~-->
+
+                    <div class="bt-socail-profile">
+                        <a class="bt-instagram-icon icon" href="#" target="_blank">
+                            <span class="social-icon">
+                                <i class="fa fa-instagram"></i>
+                            </span>
+                            <span class="bt-count">30.2k</span>
+                            <span class="bt-media-type">Likes</span>
+                        </a>
+                    </div><!--~./ bt-socail-profile ~-->
+
+                    <div class="bt-socail-profile">
+                        <a class="bt-vimeo-icon icon" href="#" target="_blank">
+                            <span class="social-icon">
+                                <i class="fa fa-vimeo"></i>
+                            </span>
+                            <span class="bt-count">10.4k</span>
+                            <span class="bt-media-type">Followers</span>
+                        </a>
+                    </div><!--~./ bt-socail-profile ~-->
+
+                    <div class="bt-socail-profile">
+                        <a class="bt-pinterest-icon icon" href="#" target="_blank">
+                            <span class="social-icon">
+                                <i class="fa fa-pinterest"></i>
+                            </span>
+                            <span class="bt-count">10.2k</span>
+                            <span class="bt-media-type">Followers</span>
+                        </a>
+                    </div><!--~./ bt-socail-profile ~-->
+
+                    <div class="bt-socail-profile">
+                        <a class="bt-soundcloud-icon icon" href="#" target="_blank">
+                            <span class="social-icon">
+                                <i class="fa fa-soundcloud"></i>
+                            </span>
+                            <span class="bt-count">5.2k</span>
+                            <span class="bt-media-type">Followers</span>
+                        </a>
+                    </div><!--~./ bt-socail-profile ~-->
+                </div>
+            </aside><!--~./ end bt social widget ~-->
+            <!--~~~~~ Start Bt Widget Categories~~~~~-->
+            @{Html.RenderAction("CategoryWidgetGetir", "CategoryWidget");}<!--~./ end bt widget categories ~-->
+            <!--~~~~~ Start Popular Posts Widget~~~~~-->
+            @{Html.RenderAction("PopularWidgetGetir", "PopularWidget");}<!--~./ end popular posts widget ~-->
+            <!--~~~~~ Start Subscribe Widget~~~~~-->
+            <aside class="widget tb-subscribe-widget">
+                <div class="widget-content">
+                    <div class="subscribe-box">
+                        <div class="icon">
+                            <img src="~/PublicFront/magala-html/assets/images/widget/newsletter/icon.png" alt="icon">
+                        </div>
+                        <p>Ən son məlumatlardan xəbərdar olmaq üçün abune olun !</p>
+                        <div class="subscribe-form">
+                            <!-- Subscribe form -->
+                            <form class="dv-form" id="mc-form">
+                                <div class="form-group">
+                                    <input id="mc-email" name="EMAIL" placeholder="Email Adres" type="email">
+                                    <button class="btn btn-primary" name="Subscribe" id="subscribe-btn" type="submit">Abunə ol</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </aside><!--~./ end subscribe widget ~-->
+            <!--~~~~~ Start Posts Slide Widget~~~~~-->
+            @{ Html.RenderAction("MiniSliderWidgetGetir", "MiniSliderWidget");}<!--~./ end posts slide widget ~-->
+            <!--~~~~~ Start Instafeed Widget ~~~~~-->
+
+            <div class="widget bt-instafeed-widget">
+                <h4 class="widget-title"><span>Instagramda bizi izləyin</span></h4>
+                <!-- LightWidget WIDGET -->
+                <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/4d2bf58aab8c53c996c5ef74e1ce07a4.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+            </div><!--~./ end instafeed widget ~-->
+            <!--~~~~~ Start Widget Categories ~~~~~-->
+            @{Html.RenderAction("CategoryWidgetNumber", "CategoryWidget");}<!--~./ end widget categories ~-->
+            <!--~~~~~ Start Widget Advertisement ~~~~~-->
+            <aside class="widget widget-text">
+                <div class="widget-content">
+                    <iframe src="//cdn.bannersnack.com/banners/bt3fvfa8u/embed/index.html?userId=41736170&t=1593533016" width="270" height="280" scrolling="no" frameborder="0" allowtransparency="true" allow="autoplay" allowfullscreen="true"></iframe>
+                </div>
+            </aside><!--~./ end widget advertisement ~-->
+        </div>
+    </div>
+</div>

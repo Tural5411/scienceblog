@@ -1,0 +1,565 @@
+﻿@model SonsuzBlog.Models.tbl_post
+@{
+    ViewBag.Title = "PostDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var oxsar = ViewBag.EtiketOxsar;
+
+}
+@helper VaxtYaz(DateTime tarix)
+{
+    TimeSpan zaman = DateTime.Now - tarix;
+    if (zaman.TotalMinutes < 1)
+    {
+        <span class="text-muted">İndi</span>
+    }
+    else if (zaman.TotalHours < 1)
+    {
+        <span class="text-muted">@zaman.Minutes Dəqiqə əvvəl</span>
+    }
+    else if (zaman.TotalDays < 1)
+    {
+        <span class="text-muted">@zaman.Hours Saat əvvəl</span>
+    }
+    else
+    {
+        <span class="text-muted">@tarix.ToString("dd.MM.yyyy") Tarixində</span>
+    }
+
+}
+
+<script>
+    setTimeout(function () { bax(@Model.PostId); }, 15000);
+</script>
+
+<!--********************* SITE CONTENT *********************-->
+<!--********************************************************-->
+<div class="site-content">
+    <div class="single-post-thumbnail-area single-post-one">
+        <div class="post-thumb bg-image bg-overlay" style="background-image:url(@Model.tbl_sekil.Boyuk);"></div>
+
+        <div class="post-header single-post-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div class="content-entry-wrap">
+                            <div class="featured-badge-list">
+                                <a class="trending" href="#">
+                                    <span class="fab fa-gripfire"></span>
+                                </a>
+                                <a class="featured" href="#">
+                                    <span class="fa fa-bolt"></span>
+                                </a>
+                            </div><!--./ featured-badge-list -->
+                            <h3   class="entry-title">@Model.Baslig</h3><!--./ entry-title -->
+                            <div class="entry-meta-content">
+                                <div class="entry-meta-author">
+                                    <div class="entry-author-thumb">
+                                        @*<img class="avatar photo" src="@Model.tbl_users.tbl_sekil.Boyuk" alt="@Model.tbl_users.Ad">*@
+                                    </div>
+                                    <div class="entry-author-name">
+                                        <a href="/Muellif/Index/@Model.MuellifId">@Model.tbl_users.Ad</a>
+                                    </div>
+                                </div><!--./ entry-meta-author -->
+                                <div class="entry-date">
+                                    <a href="/Post/TarixeGoreList/?il=@Model.Tarixi.Value.Year&ay=@Model.Tarixi.Value.Month"><span>@Model.Tarixi.Value.ToString("MMMM yyyy")</span></a>
+                                </div><!--./ entry-date -->
+                                <div class="entry-views">
+                                    <span>@Model.Baxis Baxis</span>
+                                </div><!--./ entry-date -->
+                                <div class="entry-category">
+                                    <a class="cat" href="/CategoryWidget/Index/@Model.CategoryId">@Model.tbl_category.Ad</a>
+                                </div><!--./ entry-category -->
+                                <div class="entry-comment">
+                                    <span>@Model.tbl_comment.Count() Comments</span>
+                                </div>
+                                <div class="entry-comment">
+                                    <span>@Model.Beyenme Beyenme</span>
+                                </div>
+                                <!--./ entry-comment -->
+                            </div><!--./ entry-meta-content -->
+                        </div><!--./ content-entry-wrap -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--~~~~~ Start Main Wrapper ~~~~~-->
+    <div class="main-wrapper ptb-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <!--~~~~~ Start Site Main ~~~~~-->
+                    <main class="site-main">
+                        <div class="post single-post single-post-one">
+                            <div class="post-share-area">
+                                <h3>221<span>SHARES</span></h3>
+                                <div class="share">
+                                    <a class="facebook" href="#">
+                                        <span class="fa fa-facebook"></span>
+                                        <span class="text">SHARE POST</span>
+                                    </a>
+                                    <a class="twitter" href="#">
+                                        <span class="fa fa-twitter"></span>
+                                        <span class="text">TWEET POST</span>
+                                    </a>
+                                    <a class="google" href="#">
+                                        <span class="fa fa-google-plus"></span>
+                                        <span class="text">SHARE POST</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div style="width:870px;" class="entry-content">
+                                
+                                <p>
+                                @Html.Raw(Model.Context)
+                                </p> 
+                                
+                            </div><!--entry content-->
+                            <div class="entry-footer mt-60">
+                                <div class="entry-tag">
+                                    @if (Model.tbl_etiket != null)
+                                    {
+                                        foreach (SonsuzBlog.Models.tbl_etiket etk in Model.tbl_etiket)
+                                        {
+                                            <a href="/Etiket/Index/@etk.EtiketId"  title="@etk.Ad" rel="tag" >@etk.Ad</a>
+                                        }
+                                    }
+                                </div><!--/.entry-tag-->
+                            </div><!--/.entry-footer-->
+                        </div>
+                        <!--~~~~~ Start post Navigation ~~~~~-->
+                        <nav class="post-navigation mb-80">
+
+                            <div class="post-previous bg-image bg-overlay" style="background-image:url(assets/images/post/post-next.jpg);">
+                                <a rel="prev" href="#">
+                                    <span class="label">Əvvəlki Post</span>
+                                    <h3>Barr releases Mueller and feels the heat</h3>
+                                </a>
+                            </div>
+                            <div class="post-next active bg-image bg-overlay" style="background-image:url();">
+                                <a rel="prev" href="Post/EvvelkiPost/@Model.PostId">
+                                    <span class="label">Növbəti Post</span>
+                                    <h3>Barr releases Mueller and feels the heat</h3>
+                                </a>
+                            </div>
+                        </nav><!--~./ end post navigation ~-->
+                        <!--~~~~~ Start Author Info ~~~~~-->
+                        <div class="author-info mb-80">
+                            <div id="author-img">
+                                <figure class="at-img">
+                                    <img src="@Model.tbl_sekil.Kicik" alt="@Model.tbl_users.Ad">
+                                </figure>
+                            </div><!-- / author-img -->
+
+                            <div id="author-details">
+                                <h3 class="author-name"> <a href="/Muellif/Index/@Model.MuellifId">@Model.tbl_users.Ad</a></h3>
+                                <div class="authors-bio">
+                                    <p>Baku State University </p>
+                                </div>
+                            </div><!-- /author-details -->
+                        </div><!--~./ end author info ~-->
+                        <!--~~~~~ Start Related Category Post ~~~~~-->
+                        <div class="related-category-post">
+                            <h3 class="headline">Oxsar</h3>
+                            <div class="row">
+                                <!--~~~~~ Start Post ~~~~~-->
+                                
+                                    <div class="col-lg-4">
+                                        <article class="post hentry post-list post-list-small">
+                                            <div class="entry-thumb">
+                                                <figure class="thumb-wrap">
+                                                    <a href="post-details.html">
+                                                        <img src="~/Upload/mega.jpg" alt="post">
+                                                    </a>
+                                                </figure><!--./ thumb-wrap -->
+                                            </div><!--./ entry-thumb -->
+                                            <div class="content-entry-wrap">
+                                                <div class="entry-content">
+                                                    <h3 class="entry-title">
+                                                        <a href="post-details.html">Megaladon kopeki</a>
+                                                    </h3><!--./ entry-title -->
+                                                </div><!--./ entry-content -->
+                                                <div class="entry-meta-content">
+                                                    <div class="entry-date">
+                                                        <span>July 24, 2019 </span>
+                                                    </div><!--./ entry-date -->
+                                                </div><!--./ entry-meta-content -->
+                                            </div><!--./ content-entry-wrap -->
+                                        </article>
+                                    </div>
+                                
+                                <!--~./ end post ~-->
+                                <!--~~~~~ Start Post ~~~~~-->
+                                <!--~./ end post ~-->
+                                <!--~~~~~ Start Post ~~~~~-->
+                                <div class="col-lg-4">
+                                    <article class="post hentry post-list post-list-small">
+                                        <div class="entry-thumb">
+                                            <figure class="thumb-wrap">
+                                                <a href="post-details.html">
+                                                    <img src="assets/images/post/related/3.jpg" alt="post">
+                                                </a>
+                                            </figure><!--./ thumb-wrap -->
+                                        </div><!--./ entry-thumb -->
+                                        <div class="content-entry-wrap">
+                                            <div class="entry-content">
+                                                <h3 class="entry-title">
+                                                    <a href="post-details.html">How to live some vegeterian when you eat delicious </a>
+                                                </h3><!--./ entry-title -->
+                                            </div><!--./ entry-content -->
+                                            <div class="entry-meta-content">
+                                                <div class="entry-date">
+                                                    <span>July 24, 2019 </span>
+                                                </div><!--./ entry-date -->
+                                            </div><!--./ entry-meta-content -->
+                                        </div><!--./ content-entry-wrap -->
+                                    </article>
+                                </div><!--~./ end post ~-->
+                            </div>
+                        </div><!--~./ end related category post ~-->
+                        <!--~~~~~ Start Add Banner ~~~~~-->
+                        <div class="add-banner bg-gray ptb-20">
+                            <div class="add-content text-center">
+                                <a title="add" href="#">
+                                    <img src="~/PublicFront/magala-html/assets/images/advertisement/add728X90.png" alt="add">
+                                </a>
+                            </div>
+                        </div><!--~./ end add banner ~-->
+                        <!--~~~~~ Start Related Post ~~~~~-->
+                        <div class="related-post pt-80 mb-30">
+                            <h3 class="headline">You Might Like Also</h3>
+                            <div class="row">
+                                <!--~~~~~ Start Post ~~~~~-->
+                                <div class="col-12">
+                                    <article class="post hentry post-list">
+                                        <div class="entry-thumb">
+                                            <figure class="thumb-wrap">
+                                                <a href="post-details.html">
+                                                    <img src="assets/images/post/list/1/1.jpg" alt="post">
+                                                </a>
+                                                <div class="featured-badge-list">
+                                                    <a class="trending" href="#">
+                                                        <span class="fab fa-gripfire"></span>
+                                                    </a>
+                                                </div><!--./ featured-badge-list -->
+                                            </figure><!--./ thumb-wrap -->
+                                        </div><!--./ entry-thumb -->
+                                        <div class="content-entry-wrap">
+                                            <div class="entry-content">
+                                                <h3 class="entry-title">
+                                                    <a href="post-details.html">This gun is advertised as the most popular gun in American crime</a>
+                                                </h3><!--./ entry-title -->
+                                            </div><!--./ entry-content -->
+                                            <div class="entry-meta-content">
+                                                <div class="entry-meta-author">
+                                                    <div class="entry-author-thumb">
+                                                        <img class="avatar photo" src="assets/images/author/1.jpg" alt="author">
+                                                    </div>
+                                                    <div class="entry-author-name">
+                                                        <a href="#">Ahmed Arafa</a>
+                                                    </div>
+                                                </div><!--./ entry-meta-author -->
+                                                <div class="entry-date">
+                                                    <span>October 24, 2019</span>
+                                                </div><!--./ entry-date -->
+                                                <div class="entry-views">
+                                                    <span>3 Min Read</span>
+                                                </div><!--./ entry-date -->
+                                                <div class="entry-category">
+                                                    <a class="cat" href="#">LifeStyle</a>
+                                                </div><!--./ entry-category -->
+                                            </div><!--./ entry-meta-content -->
+                                            <div class="entry-summary">
+                                                <p>Sitting on a working-class comme  dows of an easy above-ground rail line, a group cal led Make the Road New York's busy street-level offices are easy to miss. But its mission to support</p>
+                                            </div>
+                                        </div><!--./ content-entry-wrap -->
+                                    </article>
+                                </div><!--~./ end post ~-->
+                                <!--~~~~~ Start Post ~~~~~-->
+                                <div class="col-12">
+                                    <article class="post hentry post-list">
+                                        <div class="entry-thumb">
+                                            <figure class="thumb-wrap">
+                                                <a href="post-details.html">
+                                                    <img src="assets/images/post/list/1/2.jpg" alt="post">
+                                                </a>
+                                                <div class="featured-badge-list">
+                                                    <a class="trending" href="#">
+                                                        <span class="fab fa-gripfire"></span>
+                                                    </a>
+                                                    <a class="featured" href="#">
+                                                        <span class="fa fa-bolt"></span>
+                                                    </a>
+                                                </div><!--./ featured-badge-list -->
+                                            </figure><!--./ thumb-wrap -->
+                                        </div><!--./ entry-thumb -->
+                                        <div class="content-entry-wrap">
+                                            <div class="entry-content">
+                                                <h3 class="entry-title">
+                                                    <a href="post-details.html">The rumored iPhone could come in hot pink, not rose gold and silver</a>
+                                                </h3><!--./ entry-title -->
+                                            </div><!--./ entry-content -->
+                                            <div class="entry-meta-content">
+                                                <div class="entry-meta-author">
+                                                    <div class="entry-author-thumb">
+                                                        <img class="avatar photo" src="assets/images/author/1.jpg" alt="author">
+                                                    </div>
+                                                    <div class="entry-author-name">
+                                                        <a href="#">Ahmed Arafa</a>
+                                                    </div>
+                                                </div><!--./ entry-meta-author -->
+                                                <div class="entry-date">
+                                                    <span>October 24, 2019</span>
+                                                </div><!--./ entry-date -->
+                                                <div class="entry-views">
+                                                    <span>3 Min Read</span>
+                                                </div><!--./ entry-date -->
+                                                <div class="entry-category">
+                                                    <a class="cat" href="#">LifeStyle</a>
+                                                </div><!--./ entry-category -->
+                                            </div><!--./ entry-meta-content -->
+                                            <div class="entry-summary">
+                                                <p>Sitting on a working-class comme  dows of an easy above-ground rail line, a group cal led Make the Road New York's busy street-level offices are easy to miss. But its mission to support</p>
+                                            </div>
+                                        </div><!--./ content-entry-wrap -->
+                                    </article>
+                                </div><!--~./ end post ~-->
+                                <!--~~~~~ Start Post ~~~~~-->
+                                <div class="col-12">
+                                    <article class="post hentry post-list">
+                                        <div class="entry-thumb">
+                                            <figure class="thumb-wrap">
+                                                <a href="post-details.html">
+                                                    <img src="assets/images/post/list/1/3.jpg" alt="post">
+                                                </a>
+                                            </figure><!--./ thumb-wrap -->
+                                        </div><!--./ entry-thumb -->
+                                        <div class="content-entry-wrap">
+                                            <div class="entry-content">
+                                                <h3 class="entry-title">
+                                                    <a href="post-details.html">How to live with some vegeterian when you eat barbecue meat</a>
+                                                </h3><!--./ entry-title -->
+                                            </div><!--./ entry-content -->
+                                            <div class="entry-meta-content">
+                                                <div class="entry-meta-author">
+                                                    <div class="entry-author-thumb">
+                                                        <img class="avatar photo" src="assets/images/author/1.jpg" alt="author">
+                                                    </div>
+                                                    <div class="entry-author-name">
+                                                        <a href="#">Ahmed Arafa</a>
+                                                    </div>
+                                                </div><!--./ entry-meta-author -->
+                                                <div class="entry-date">
+                                                    <span>October 24, 2019</span>
+                                                </div><!--./ entry-date -->
+                                                <div class="entry-views">
+                                                    <span>3 Min Read</span>
+                                                </div><!--./ entry-date -->
+                                                <div class="entry-category">
+                                                    <a class="cat" href="#">LifeStyle</a>
+                                                </div><!--./ entry-category -->
+                                            </div><!--./ entry-meta-content -->
+                                            <div class="entry-summary">
+                                                <p>Sitting on a working-class comme  dows of an easy above-ground rail line, a group cal led Make the Road New York's busy street-level offices are easy to miss. But its mission to support</p>
+                                            </div>
+                                        </div><!--./ content-entry-wrap -->
+                                    </article>
+                                </div><!--~./ end post ~-->
+                            </div> <!-- /.row -->
+                        </div> <!--~./ end related post ~-->
+                        <!--~~~~~ Start Comments Area ~~~~~-->
+                        <div class="comments-area" id="comments">
+                            <div class="row">
+                                @foreach (var x in Model.tbl_comment)
+                                {
+                                    <div style="padding:20px ; border:dashed ; border-bottom:none;border-right:thick; border-left:thin;" class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-1">
+                                                <div class="thumbnail">
+                                                    <img class="img-responsive user-photo" src="~/PublicFront/magala-html/assets/images/author/1.jpg" />
+                                                </div><!-- /thumbnail -->
+                                            </div><!-- /col-sm-1 -->
+                                            <div class="col-sm-5">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <strong style="padding:0 20px 0 0;">@x.Ad @x.Soyad</strong> @VaxtYaz(x.Tarixi.Value)
+                                                    </div>
+                                                    <div style="padding:9px 0;" class="panel-body">
+                                                        @x.Context
+                                                    </div><!-- /panel-body -->
+                                                </div><!-- /panel panel-default -->
+                                            </div><!-- /col-sm-5 -->
+                                        </div>
+                                    </div>
+
+                                }
+                            </div><!-- /row -->
+
+                            <div id="disqus_thread"></div>
+                            <script>
+
+                                /**
+                                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                                /*
+                                var disqus_config = function () {
+                                this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                                this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                                };
+                                */
+                                (function () { // DON'T EDIT BELOW THIS LINE
+                                    var d = document, s = d.createElement('script');
+                                    s.src = 'https://sonsuzbilgi-az.disqus.com/embed.js';
+                                    s.setAttribute('data-timestamp', +new Date());
+                                    (d.head || d.body).appendChild(s);
+                                })();
+                            </script>
+                            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            <!-- #respond -->
+                        </div> <!--~./ end comments area ~-->
+                    </main>
+                    <!--~./ end site main ~-->
+                </div>
+
+                <!--~~~~~ Start sidebar ~~~~~-->
+                <div class="col-lg-3">
+                    <div class="sidebar">
+                        <div class="sidebar-inner">
+                            <!--~~~~~ Start Bt Social Widget~~~~~-->
+                            <aside class="widget bt-socail-widget">
+                                <div class="widget-content">
+                                    <div class="bt-socail-profile">
+                                        <a class="bt-facebook-icon icon" href="#" target="_blank">
+                                            <span class="social-icon">
+                                                <i class="fa fa-facebook"></i>
+                                            </span>
+                                            <span class="bt-count">30.2k</span>
+                                            <span class="bt-media-type">Likes</span>
+                                        </a>
+                                    </div><!--~./ bt-socail-profile ~-->
+
+                                    <div class="bt-socail-profile">
+                                        <a class="bt-google-plus-icon icon" href="#" target="_blank">
+                                            <span class="social-icon">
+                                                <i class="fa fa-google-plus"></i>
+                                            </span>
+                                            <span class="bt-count">10.2k</span>
+                                            <span class="bt-media-type">Followers</span>
+                                        </a>
+                                    </div><!--~./ bt-socail-profile ~-->
+
+                                    <div class="bt-socail-profile">
+                                        <a class="bt-twitter-icon icon" href="#" target="_blank">
+                                            <span class="social-icon">
+                                                <i class="fa fa-twitter"></i>
+                                            </span>
+                                            <span class="bt-count">62.4k</span>
+                                            <span class="bt-media-type">Followers</span>
+                                        </a>
+                                    </div><!--~./ bt-socail-profile ~-->
+
+                                    <div class="bt-socail-profile">
+                                        <a class="bt-youtube-icon icon" href="#" target="_blank">
+                                            <span class="social-icon">
+                                                <i class="fa fa-youtube"></i>
+                                            </span>
+                                            <span class="bt-count">30.2k</span>
+                                            <span class="bt-media-type">Subscrib</span>
+                                        </a>
+                                    </div><!--~./ bt-socail-profile ~-->
+
+                                    <div class="bt-socail-profile">
+                                        <a class="bt-instagram-icon icon" href="#" target="_blank">
+                                            <span class="social-icon">
+                                                <i class="fa fa-instagram"></i>
+                                            </span>
+                                            <span class="bt-count">30.2k</span>
+                                            <span class="bt-media-type">Likes</span>
+                                        </a>
+                                    </div><!--~./ bt-socail-profile ~-->
+
+                                    <div class="bt-socail-profile">
+                                        <a class="bt-vimeo-icon icon" href="#" target="_blank">
+                                            <span class="social-icon">
+                                                <i class="fa fa-vimeo"></i>
+                                            </span>
+                                            <span class="bt-count">10.4k</span>
+                                            <span class="bt-media-type">Followers</span>
+                                        </a>
+                                    </div><!--~./ bt-socail-profile ~-->
+
+                                    <div class="bt-socail-profile">
+                                        <a class="bt-pinterest-icon icon" href="#" target="_blank">
+                                            <span class="social-icon">
+                                                <i class="fa fa-pinterest"></i>
+                                            </span>
+                                            <span class="bt-count">10.2k</span>
+                                            <span class="bt-media-type">Followers</span>
+                                        </a>
+                                    </div><!--~./ bt-socail-profile ~-->
+
+                                    <div class="bt-socail-profile">
+                                        <a class="bt-soundcloud-icon icon" href="#" target="_blank">
+                                            <span class="social-icon">
+                                                <i class="fa fa-soundcloud"></i>
+                                            </span>
+                                            <span class="bt-count">5.2k</span>
+                                            <span class="bt-media-type">Followers</span>
+                                        </a>
+                                    </div><!--~./ bt-socail-profile ~-->
+                                </div>
+                            </aside><!--~./ end bt social widget ~-->
+                            <!--~~~~~ Start Bt Widget Categories~~~~~-->
+                            @{Html.RenderAction("CategoryWidgetGetir", "CategoryWidget");}<!--~./ end bt widget categories ~-->
+                            <!--~~~~~ Start Popular Posts Widget~~~~~-->
+                            @{Html.RenderAction("PopularWidgetGetir", "PopularWidget");}<!--~./ end popular posts widget ~-->
+                            <!--~~~~~ Start Subscribe Widget~~~~~-->
+                            <aside class="widget tb-subscribe-widget">
+                                <div class="widget-content">
+                                    <div class="subscribe-box">
+                                        <div class="icon">
+                                            <img src="~/PublicFront/magala-html/assets/images/widget/newsletter/icon.png" alt="icon">
+                                        </div>
+                                        <p>Ən son məlumatlardan xəbərdar olmaq üçün abune olun !</p>
+                                        <div class="subscribe-form">
+                                            <!-- Subscribe form -->
+                                            <form class="dv-form" id="mc-form">
+                                                <div class="form-group">
+                                                    <input id="mc-email" name="EMAIL" placeholder="Email Adres" type="email">
+                                                    <button class="btn btn-primary" name="Subscribe" id="subscribe-btn" type="submit">Abunə ol</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </aside><!--~./ end subscribe widget ~-->
+                            <!--~~~~~ Start Posts Slide Widget~~~~~-->
+                            @{ Html.RenderAction("MiniSliderWidgetGetir", "MiniSliderWidget");}<!--~./ end posts slide widget ~-->
+                            <!--~~~~~ Start Instafeed Widget ~~~~~-->
+
+                            <div class="widget bt-instafeed-widget">
+                                <h4 class="widget-title"><span>Instagramda bizi izləyin</span></h4>
+                                <!-- LightWidget WIDGET -->
+                                <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/4d2bf58aab8c53c996c5ef74e1ce07a4.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+                            </div><!--~./ end instafeed widget ~-->
+                            <!--~~~~~ Start Widget Categories ~~~~~-->
+                            @{Html.RenderAction("CategoryWidgetNumber", "CategoryWidget");}<!--~./ end widget categories ~-->
+                            <!--~~~~~ Start Widget Advertisement ~~~~~-->
+                            <aside class="widget widget-text">
+                                <div class="widget-content">
+                                    <a title="add" href="#">
+                                        <img src="~/PublicFront/magala-html/assets/images/advertisement/add-widget.png" alt="">
+                                    </a>
+                                </div>
+                            </aside><!--~./ end widget advertisement ~-->
+                        </div>
+                    </div>
+                </div><!--~./ end sidebar ~-->
+            </div>
+        </div>
+    </div><!--~./ end main wrapper ~-->
+</div>
+<!--~./ end site content ~-->
+<script id="dsq-count-scr" src="//sonsuzbilgi-az.disqus.com/count.js" async></script>

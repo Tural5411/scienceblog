@@ -1,0 +1,30 @@
+﻿@model IEnumerable<SonsuzBlog.Models.tbl_category>
+@using SonsuzBlog.Helper
+<div class="frontpage-cat-block pb-2 bg-white">
+    <div class="container">
+        <div class="row">
+            <!--~~~~~ Start Section Header ~~~~~-->
+            <div class="col-12">
+                <div class="section-header style-two text-center">
+                </div>
+            </div><!--~./ end section header ~-->
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div id="category-carousel" class="owl-carousel">
+                    <!--~~~~~ Start Cat Item~~~~~-->
+                    @foreach (var x in Model)
+                    {
+                        <a href="/Category/@SeoHelper.ToSeoUrl(x.Ad).ToLower()-@x.CategoryId" class="cat-item">
+                            <div class="cat-thumb">
+                                <img width="170"  style="object-fit:cover; height:170px;" src="@x.tbl_sekil.Boyuk" alt="@x.Ad">
+                            </div>
+                            <h3>@x.Ad</h3>
+                        </a>
+                    }
+                    <!--./ end cat item -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

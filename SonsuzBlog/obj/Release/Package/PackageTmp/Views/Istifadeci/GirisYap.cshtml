@@ -1,0 +1,31 @@
+﻿
+@{
+    /**/
+
+    ViewBag.Title = "GirisYap";
+    Layout = "~/Views/Shared/_LayoutCategory.cshtml";
+}
+
+<h2 style="text-transform:uppercase; margin:40px; letter-spacing:1px; line-height:2em;">Giris</h2>
+
+@using (Html.BeginForm("KayitOl", "Istifadeci", FormMethod.Post, new { ectype = "multipart/form-data" }))
+{<table style="margin:40px;">
+    <tr>
+        <td>@ViewBag.Mesaj</td>
+    </tr>
+    <tr>
+        <td>Istifadeci Nick</td>
+        <td><input class="form-control" type="text" name="IstifadeciAdi" value="" required /></td>
+    </tr>
+    <tr>
+        <td>Sifre</td>
+        <td><input class="form-control" type="password" name="Sifre" required value="" /></td>
+    </tr>
+    <tr>
+        <td></td>
+
+        <td><input style="margin-top:10px;" class="form-control btn-outline-success" type="submit" name="btnGiris" value="GIRIS" /></td>
+    </tr>
+</table>
+
+}

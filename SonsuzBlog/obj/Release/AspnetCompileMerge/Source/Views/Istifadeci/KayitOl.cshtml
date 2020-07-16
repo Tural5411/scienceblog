@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "KayitOl";
+    Layout = "~/Views/Shared/_LayoutCategory.cshtml";
+}
+
+<h2>Qeydiyyat</h2>
+@using (Html.BeginForm("KayitOl", "Istifadeci", FormMethod.Post, new { ectype = "multipart/form-data" })) {
+<table style="margin:20px;">
+    <tr>
+        <td>Istifadeci Nick</td>
+        <td><input class="form-control" type="text" name="Nick" value="" required /></td>
+    </tr>
+    <tr>
+        <td>Sifre</td>
+        <td><input class="form-control" type="password" name="Sifre" required value="" /></td>
+    </tr>
+    <tr>
+        <td>Sifre Tekrar</td>
+        <td><input class="form-control" type="password" name="SifreTekrar" required value="" /></td>
+    </tr>
+    <tr>
+        <td>Maili</td>
+        <td><input class="form-control" type="email" name="mail" required value="" /></td>
+    </tr>
+    <tr>
+        <td>Adi</td>
+        <td><input class="form-control" type="text" name="Adi" required value="" /></td>
+    </tr>
+    <tr>
+        <td>Soyadi</td>
+        <td><input class="form-control" type="text" name="Soyadi" required value="" /></td>
+    </tr>
+    <tr>
+        <td>Sekil</td>
+        <td><input class="form-control" type="file" name="Sekil" value="" /></td>
+    </tr>
+    <tr><td></td>
+        
+        <td><input style="margin-top:10px;" class="form-control btn-outline-success" type="submit" name="btnKayitOl" value="Qeydiyyatdan Kec" /></td>
+    </tr>
+</table>
+
+
+
+
+}

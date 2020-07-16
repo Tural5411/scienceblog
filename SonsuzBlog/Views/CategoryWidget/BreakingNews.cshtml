@@ -1,0 +1,18 @@
+﻿@model IEnumerable<SonsuzBlog.Models.tbl_post>
+@using SonsuzBlog.Helper
+<div id="newsTicker" class="breaking-news-ticker">
+    <div class="bn-label">Ən son xəbərlər</div>
+    <div class="bn-news">
+        <ul>
+            @foreach (var x in Model)
+            {
+                <li><a href="/Post/@SeoHelper.ToSeoUrl(x.Baslig).ToLower()-@x.PostId">@x.Baslig <span>@x.tbl_category.Ad</span></a></li>
+            }
+        </ul>
+    </div><!--./ bn-news -->
+    <div class="bn-controls">
+        <button><span class="bn-arrow bn-prev"></span></button>
+        <button><span class="bn-arrow bn-next"></span></button>
+    </div><!--./ bn-controls -->
+</div>
+

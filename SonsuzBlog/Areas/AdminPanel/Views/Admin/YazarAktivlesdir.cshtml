@@ -1,0 +1,50 @@
+﻿@model IEnumerable<SonsuzBlog.Models.tbl_users>
+@{
+    ViewBag.Title = "YazarAktivlesdir";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="color:#0094ff; font-size:30px; letter-spacing:2px; font-weight:700; padding-bottom:20px;">MÜƏLLİF AKTİVLƏŞDİRMƏ</h2>
+
+@if (TempData["Info"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <h4 style="font-size:20px; letter-spacing:3px; font-weight:900;" class="alert-heading">Uğurlu!</h4>
+        <p style="font-size:17px; letter-spacing:1px; font-weight:700;">@TempData["Info"]</p>
+        <hr>
+        <p style="font-size:17px; letter-spacing:1px; font-weight:700;" class="mb-0">Artıq müəllif məqalə yaza biləcək.</p>
+    </div>
+}
+
+
+<table class="table table-primary">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th></th>
+            <th>Adı</th>
+            <th></th>
+            <th>Soyadı</th>
+            <th></th>
+            <th>Tesdiq</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int a = 1;}
+    @foreach (SonsuzBlog.Models.tbl_users x in Model)
+    {
+        <tr>
+            <td>@a</td>
+            <td></td>
+            <td>@x.Ad </td>
+            <td></td>
+            <td>@x.Soyad</td>
+            <td></td>
+            <td> <a href="/AdminPanel/Admin/TesdiqEle/@x.UserId">Təsdiqlə</a></td>
+            <td></td>
+        </tr>
+        a++;
+    }
+    </tbody>
+</table>

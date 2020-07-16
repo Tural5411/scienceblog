@@ -1,0 +1,9 @@
+﻿
+@{
+    ViewBag.Title = "Etiket - ";
+    Layout = "~/Views/Shared/_LayoutCategory.cshtml";
+}
+
+@{ 
+    Html.RenderAction("PostList", new { id = Model });
+}

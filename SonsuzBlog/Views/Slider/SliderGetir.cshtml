@@ -1,0 +1,91 @@
+﻿@model IEnumerable<SonsuzBlog.Models.tbl_post>
+@using SonsuzBlog.Helper
+    @helper Qisalt(string metn) { 
+if(metn.Length > 50)
+{
+        @metn.Substring(0, 50);
+}
+else
+{
+        @metn;
+}
+    }
+<div class="frontpage-slider-posts slider-style-one">
+    <div id="frontpage-slider" class="owl-carousel frontpage-slider-one" data-slider-id="1">
+        @foreach (var x in Model)
+        {
+            <article class="slider-item">
+                <figure class="slider-thumb">
+                    <img height="680" src="@x.tbl_sekil.Boyuk" alt="@x.Baslig">
+                </figure><!--./ slider-thumb -->
+                <div class="content-entry-wrap">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-9">
+                                <div class="featured-badge-list">
+                                    <a class="trending" href="#">
+                                        <span class="fab fa-gripfire"></span>
+                                    </a>
+                                </div><!--./ featured-badge-list -->
+                                <div class="entry-content">
+                                    <h3 class="entry-title">
+                                        <a href="/Post/@SeoHelper.ToSeoUrl(x.Baslig).ToLower()-@x.PostId">@x.Baslig</a>
+                                    </h3><!--./ entry-title -->
+                                </div><!--./ entry-content -->
+
+                                <div class="entry-meta-content">
+                                    <div class="entry-meta-author">
+                                        <div class="entry-author-thumb">
+                                            @*<img class="avatar photo" src="@x.tbl_users.tbl_sekil.Kicik" alt="author">*@
+                                        </div>
+                                        <div class="entry-author-name">
+                                            <a href="/Muellif/@SeoHelper.ToSeoUrl(x.tbl_users.Ad).ToLower()-@x.tbl_users.UserId">@x.tbl_users.Ad</a>
+                                        </div>
+                                    </div><!--./ entry-meta-author -->
+                                    <div class="entry-date">
+                                        <span>@x.Tarixi</span>
+                                    </div><!--./ entry-date -->
+                                    <div class="entry-views">
+                                        <span>Serh @x.tbl_comment.Count() </span>
+                                    </div>
+                                    <div class="entry-views">
+                                        <span>@x.Baxis Baxis</span>
+                                    </div>
+                                    <div class="entry-views">
+                                        <span>Beyenme @x.Beyenme</span>
+                                    </div>
+                                    <!--./ entry-views -->
+                                    <div class="entry-category">
+                                        <a class="cat" href="/Category/@SeoHelper.ToSeoUrl(x.tbl_category.Ad).ToLower()-@x.CategoryId">@x.tbl_category.Ad</a>
+                                    </div><!--./ entry-category -->
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--./ entry-meta-content -->
+                </div><!--./ content-entry-wrap -->
+            </article>
+        }
+
+        <!--./ slider-item -->
+    </div><!--/#frontpage-slide -->
+
+    <div class="frontpage-slider-thumb">
+        <div class="container">
+            <div class="owl-thumbs" data-slider-id="1">
+            @foreach (var x in Model)
+            {
+                <button class="owl-thumb-item">
+                    <span class="thumb">
+                        <img src="@x.tbl_sekil.Boyuk" alt="@x.Baslig">
+                    </span>
+                    <span class="text">
+                        @Qisalt(x.Baslig)
+                    </span>
+                </button>
+            }
+                <!--/.owl-thumb-->
+            </div><!--/.owl-thumbs-->
+        </div>
+    </div><!--/.frontpage-slider-thumb-->
+</div>
+<!--~./End frontpage slider posts ~-->

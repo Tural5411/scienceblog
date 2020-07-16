@@ -1,0 +1,93 @@
+﻿@using SonsuzBlog.Helper
+@model IEnumerable<SonsuzBlog.Models.tbl_post>
+@helper Qisalt(string Metn)
+{
+    if (Metn.Length > 200)
+    {
+        @Metn.Substring(0, 200)
+    }
+    else
+    {
+        @Metn
+    }
+}
+<main class="site-main">
+    <div class="row">
+        <div class="col-12">
+            <div class="section-header">
+                <h2 class="section-title">Postlar</h2>
+            </div>
+        </div><!--~./ end section header ~-->
+        <!--~~~~~ Start Post ~~~~~-->
+        @foreach (var item in Model)
+        {
+            <div class="col-12 load-post">
+                <article class="post hentry post-list">
+                    <div class="entry-thumb">
+                        <figure class="thumb-wrap">
+                            <a href="/Post/@SeoHelper.ToSeoUrl(item.Baslig).ToLower()-@item.PostId">
+                                <img width="270" height="220" src="@item.tbl_sekil.Boyuk" alt="@item.Baslig">
+                            </a>
+                            <div class="featured-badge-list">
+                                <a class="trending" href="#">
+                                    <span class="fab fa-gripfire"></span>
+                                </a>
+                            </div><!--./ featured-badge-list -->
+                        </figure><!--./ thumb-wrap -->
+                    </div><!--./ entry-thumb -->
+                    <div class="content-entry-wrap">
+                        <div class="entry-content">
+                            <h3 class="entry-title">
+                                <a href="/Post/@SeoHelper.ToSeoUrl(item.Baslig).ToLower()-@item.PostId">@item.Baslig</a>
+                            </h3><!--./ entry-title -->
+                        </div><!--./ entry-content -->
+                        <div class="entry-meta-content">
+                            <div class="entry-meta-author">
+                                <div class="entry-author-thumb">
+                                    <img class="avatar photo" src="~/PublicFront/magala-html/assets/images/author/1.jpg" alt="@item.tbl_users.Ad">
+                                </div>
+                                <div class="entry-author-name">
+                                    <a href="/Muellif/Index/@item.MuellifId">@item.tbl_users.Ad</a>
+                                </div>
+                            </div><!--./ entry-meta-author -->
+                            <div class="entry-date">
+                                <span><i style="margin-right:2px;" class="far fa-clock"></i>@item.Tarixi.Value.ToShortDateString()</span>
+                            </div><!--./ entry-date -->
+                            <div class="entry-views">
+                                <span><i style="margin-right:2px;" class="fas fa-eye"></i>@item.Baxis</span>
+                            </div>
+                            <div class="entry-views">
+                                <span><i style="margin-right:2px;" class="fas fa-comment"></i>@item.tbl_comment.Count</span>
+                            </div>
+                            <div class="entry-views">
+                                <a href="javascript:void(0)" style="cursor:pointer;" class="beyen" data-id="@item.PostId"> <i style="margin-right:2px; color:#b11515; font-weight:900;" class="fas fa-heart"></i>@item.Beyenme</a>
+                            </div>
+
+                            <!--./ entry-date -->
+                            <div class="entry-category">
+                                <a class="cat" href="/CategoryWidget/Index/@item.tbl_category.CategoryId">@item.tbl_category.Ad</a>
+                            </div><!--./ entry-category -->
+                        </div><!--./ entry-meta-content -->
+                        <div class="entry-summary">
+                            <p>
+                                @*@Html.Raw(item.Context.Substring(0, item.Context.Length > 200 ? 200 : item.Context.Length))*@
+                              @Qisalt(item.Context)
+
+                            </p>
+                        </div>
+                    </div><!--./ content-entry-wrap -->
+                </article>
+            </div>
+    }
+        <!--~./ end post ~-->
+    </div>
+</main>
+<!--~./ end site main ~-->
+<!--~~~~~ Load More Area ~~~~~-->
+<div class="load-more-area text-center mt-30">
+    <button class="btn btn-load-more loadmore">
+        <i class="fa fa-spinner"></i>
+        Load More
+    </button><!--/#loadmore-->
+    <span class="no-posts">No more posts</span>
+</div><!--/.load-more-area-->

@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--SEO-->
+    <meta name="description" content="Sonsuzbilgi- Xeber,Elmi xeberler,Elm,Texnologiya,Tekamul Nezeriyyesi,Kitab Tovsiyyeleri,Biologiya,Fizika,Kimya,Astronomiya,Senedli Film,Film Tovsiyyeleri,En son xeberler,Kosmos,Cografiya ,maraqli melumatlar,maraqli" />
+    <meta name="keywords" content="Sonsuzbilgi- Xeber,Elmi xeberler,Elm,Texnologiya,Tekamul Nezeriyyesi,Kitab Tovsiyyeleri,Biologiya,Fizika,Kimya,Astronomiya,Senedli Film,Film Tovsiyyeleri,En son xeberler,Kosmos,Cografiya,maraqli melumatlar,maraqli" />
+    <meta name="title" content="Sonsuzbilgi- Xəbər,Elmi xəbərlər,Elm,Texnologiya,Təkamül Nəzəriyyəsi,KitabTövsiyyələri,Biologiya,Fizika,Kimya,Astronomiya,Sənədli Film,Film Tövsiyyələri,En son xəbərlər,Kosmos,Coğrafiya,maraqlı məlumatlar,maraqlı" />
+    <meta property="og:title" content="Sonsuzbilgi - Qaranlığı elmlə fəth et" />
+    <meta property="og:site_name" content="www.sonsuzbilgi.az" />
+    <meta property="og:description" content="Sonsuzbilgi- Xəbər,Elmi xəbərlər,Elm,Texnologiya,Təkamül Nəzəriyyəsi,KitabTövsiyyələri,Biologiya,Fizika,Kimya,Astronomiya,Sənədli Film,Film Tövsiyyələri,En son xəbərlər,Kosmos,Coğrafiya,maraqlı məlumatlar,maraqlı" />
+    <!-- Page Title -->
+    <title>Sonsuzbilgi - Qaranlığı elmlə fəth et</title>
+
+    <!--- Font Icon -->
+    <link rel="stylesheet" href="~/PublicFront/magala-html/assets/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="~/PublicFront/magala-html/assets/css/fontawesome.min.css">
+
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" href="~/PublicFront/magala-html/assets/infinite_for_tural-0.png">
+
+    <!-- Plugins css -->
+    <link rel="stylesheet" href="~/PublicFront/magala-html/assets/css/plugins.css">
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="~/PublicFront/magala-html/style.css">
+    <link href="~/PublicFront/magala-html/stylecomment.css" rel="stylesheet" />
+    <script src="~/PublicFront/magala-html/assets/js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("a.beyen").click(function () {
+                var id = $(this).data("id");
+                var link = "/Post/PostBeyen/" + id;
+                var a = $(this);
+                $.ajax({
+                    type: "GET",
+                    url: link,
+                    success: function (result) {
+                        a.html("<i style='margin-right:2px; color:#b11515; font-weight:900;' class='fas fa-heart'></i>" + result);
+                    }
+                });
+            });
+        });
+
+        function bax(id) {
+
+            var link = "/Post/Baxildi/" + id;
+            $.get(link);
+        }
+    </script>
+</head>
+<body>
+    <!--********************************************************-->
+    <!--********************* SITE HEADER **********************-->
+    <!--********************************************************-->
+    <header class="site-header header-style-one">
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            Start Site Navigation
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <div class="site-navigation">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="navbar navbar-expand-lg navigation-area">
+                            <div class="site-logo-block">
+                                <a class="navbar-brand site-logo" href="/">
+                                    <img width="88" height="44" src="~/PublicFront/magala-html/assets/infinite_for_tural-0.png" alt="logo">
+                                </a>
+                            </div><!--~./ site-logo-block ~-->
+                            <div class="mainmenu-area">
+                                <nav class="menu">
+                                    <ul id="nav">
+                                        <li class="">
+                                            <a href="#">Ana Səhifə</a>
+                                        </li>
+                                        <li class="dropdown-trigger">
+                                            <a href="#">Kateqoriyalar</a>
+                                            <ul class="dropdown-content">
+                                                <li><a href="category-standard.html">Standard Post</a></li>
+                                                <li><a href="category-grid.html">Grid Post</a></li>
+                                                <li><a href="category-list.html">List Post</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown-trigger">
+                                            <a href="#">Yazarlar</a>
+                                            <span class="menu-label new">new</span>
+                                            <ul class="dropdown-content">
+                                                <li><a href="category-grid.html">Business</a></li>
+                                                <li><a href="category-list.html">Fashion</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Haqqımızda</a></li>
+                                        <li class="dropdown-trigger">
+                                            <a href="#">Əlaqə</a>
+                                            <span class="menu-label">Hot</span>
+                                            <ul class="dropdown-content">
+                                                <li><a href="category-standard.html">Post standard</a></li>
+                                                <li><a href="category-grid.html">Post Grid Two</a></li>
+                                                <li><a href="category-list.html">Post list Three</a></li>
+                                                <li><a href="post-details.html">Post details One</a></li>
+                                                <li><a href="post-details-two.html">Post details Two</a></li>
+                                                <li><a href="post-details-three.html">Post details Three</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </nav><!--/.menu-->
+                            </div><!--~./ mainmenu-wrap ~-->
+
+                            <div class="header-navigation-right">
+                                <div class="search-wrap">
+                                    <div class="search-btn">
+                                        <img src="~/PublicFront/magala-html/assets/images/icon/search.png" alt="icon">
+                                        <span>Axtar</span>
+                                    </div>
+                                    <div class="search-form">
+                                        <form action="#">
+                                            <input type="search" placeholder="Search">
+                                            <button type="submit"><i class='fa fa-search'></i></button>
+                                        </form>
+                                    </div>
+                                </div><!--~./ search-wrap ~-->
+                            </div><!--~./ header-navigation-right ~-->
+                        </div><!--~./ navigation-area ~-->
+                    </div>
+                </div>
+            </div>
+        </div><!--~./ site-navigation ~-->
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            Start Mobile Menu
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <div class="mobile-menu">
+            <a class="mobile-logo" href="index-2.html">
+                <img width="88" height="44" style="object-fit:cover;" src="~/PublicFront/magala-html/assets/infinite_for_tural-0.png" alt="logo">
+            </a>
+        </div><!--~~./ end mobile menu ~~-->
+    </header>
+    <!--~./End site header ~-->
+    <!--********************************************************-->
+    <!--********************* SITE CONTENT *********************-->
+    <!--********************************************************-->
+    @RenderBody()
+    <!--~./ end site content ~-->
+    <!--********************************************************-->
+    <!--********************************************************-->
+    <!--********************** SITE FOOTER *********************-->
+    <!--********************************************************-->
+    <footer class="site-footer footer-default-style bg-black pt-80">
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            Start Footer Widget Area
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <div class="footer-widget-area pb-20">
+            <div class="container">
+                <div class="row">
+                    <!--~~~~~ Start Widget About us Info ~~~~~-->
+                    <div class="col-lg-4">
+                        <aside class="widget bt-about-us-widget">
+                            <div class="widget-content">
+                                <div class="about-logo">
+                                    <a href="index-2.html"><img width="88" height="44" src="~/PublicFront/magala-html/assets/infinite_for_tural-0.png" alt="Logo"></a>
+                                </div>
+                                <p>Sitting on a working-class comme dows of an easy above-ground rail line group called Make the Road New York's busy street</p>
+                                <ul class="social-share">
+                                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a class="google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a class="youtube" href="#"><i class="fa fa-youtube"></i></a></li>
+                                    <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </aside>
+                    </div><!--~./ end about us widget ~-->
+                    <!--~~~~~ Start Latest Posts Widget~~~~~-->
+                    <div class="col-lg-4">
+                        <aside class="widget latest-posts-widget">
+                            <div class="widget-content">
+                                <article class="post side-post">
+                                    <div class="thumb-wrap">
+                                        <a href="post-details.html">
+                                            <img src="~/PublicFront/magala-html/assets/images/widget/populer/2.jpg" alt="post">
+                                        </a>
+                                    </div><!--./ thumb-wrap -->
+                                    <div class="content-entry-wrap">
+                                        <h3 class="entry-title">
+                                            <a href="post-details.html">This gun is advertise as the most popular gun</a>
+                                        </h3><!--./ entry-title -->
+                                        <div class="entry-meta-content">
+                                            <div class="entry-date">
+                                                <span>July 24, 2019 </span>
+                                            </div><!--./ entry-date -->
+                                            <div class="entry-category">
+                                                <a class="cat" href="#">LifeStyle</a>
+                                            </div><!--./ entry-category -->
+                                        </div><!--./ entry-meta-content -->
+                                    </div>
+                                </article><!--./ end post -->
+
+                                <article class="post side-post">
+                                    <div class="thumb-wrap">
+                                        <a href="post-details.html">
+                                            <img src="~/PublicFront/magala-html/assets/images/widget/populer/3.jpg" alt="post">
+                                        </a>
+                                    </div><!--./ thumb-wrap -->
+                                    <div class="content-entry-wrap">
+                                        <h3 class="entry-title">
+                                            <a href="post-details.html">How to live with some vegeterian when you eat </a>
+                                        </h3><!--./ entry-title -->
+                                        <div class="entry-meta-content">
+                                            <div class="entry-date">
+                                                <span>July 24, 2019 </span>
+                                            </div><!--./ entry-date -->
+                                            <div class="entry-category">
+                                                <a class="cat" href="#">Gaming</a>
+                                            </div><!--./ entry-category -->
+                                        </div><!--./ entry-meta-content -->
+                                    </div>
+                                </article><!--./ end post -->
+                            </div>
+                        </aside>
+                    </div><!--~./ end latest posts widget ~-->
+                    <!--~~~~~ Start Widget categories ~~~~~-->
+                    <div class="col-lg-4">
+                        @{Html.RenderAction("CategoryWidgetNumber", "CategoryWidget");}
+                    </div><!--~./ end widget address ~-->
+                </div>
+            </div>
+        </div>
+        <!--~./ end footer widgets area ~-->
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            Start Footer Bottom Area
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <div class="footer-bottom-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="copyright-text">
+                            <p>© Copyright 2019 Magala. All Rights Reserved</p>
+                        </div>
+                    </div><!--~./ end copyright ~-->
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul class="list">
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Private Policy</a></li>
+                                <li><a href="#">Support</a></li>
+                                <li><a href="#">Use Of Terms</a></li>
+                            </ul>
+                        </div><!--~./ end footer menu ~-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--~./ end footer bottom area ~-->
+    </footer>
+    <!--~./ end site footer ~-->
+    <!-- jQuery js -->
+    
+    <!-- Bootstrap js -->
+    <script src="~/PublicFront/magala-html/assets/js/bootstrap.min.js"></script>
+    <!-- Popper js -->
+    <script src="~/PublicFront/magala-html/assets/js/popper.min.js"></script>
+    <!-- Owl carousel js -->
+    <script src="~/PublicFront/magala-html/assets/js/owl.carousel.min.js"></script>
+    <!-- News Ticker js -->
+    <script src="~/PublicFront/magala-html/assets/js/breaking-news-ticker.min.js"></script>
+    <!-- Sticky ResizeSensor js -->
+    <script src="~/PublicFront/magala-html/assets/js/ResizeSensor.min.js"></script>
+    <!-- Sticky Sidebar js -->
+    <script src="~/PublicFront/magala-html/assets/js/theia-sticky-sidebar.min.js"></script>
+    <!-- Plugin js -->
+    <script src="~/PublicFront/magala-html/assets/js/plugins.js"></script>
+    <!-- main js -->
+    <script src="~/PublicFront/magala-html/assets/js/main.js"></script>
+</body>
+</html>

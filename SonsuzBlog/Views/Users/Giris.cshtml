@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sonsuzbilgi - Giris</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/PublicFront/turalicon.ico" />
+    <link href="~/PublicFront/magala-html/assets/css/fontawesome.all.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/PublicFront/Login_v1/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/PublicFront/Login_v1/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/PublicFront/Login_v1/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/PublicFront/Login_v1/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/PublicFront/Login_v1/css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+
+	<div class="limiter">
+        
+		<div style="background:url(/Upload/logback2.jpg) no-repeat,center;background-size:cover;" class="container-login100">
+			<div style="padding: -8px 141px 38px 114px; background:rgba(255, 255, 255, 0.32); " class="wrap-login100">
+                <div class="login100-pic js-tilt" data-tilt>
+                    <a href="/"><img  style=" position:relative; top:60px;" src="~/PublicFront/magala-html/assets/infinite_for_tural-0.png" alt="IMG"></a>
+                </div>
+
+                <form action="/Users/Giris" method="post" enctype="multipart/form-data" class="login100-form validate-form">
+                    <span style="color:white; letter-spacing:2px; text-transform:uppercase;" class="login100-form-title">
+                        Daxil Ol
+                    </span>
+                    
+
+                    <div class="wrap-input100 validate-input" data-validate="Adinizi daxil edin: mes=tural5411">
+                        <input class="input100" type="text" name="Login" placeholder="Istifadeci adi">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Sifrenizi daxil edin">
+                        @TempData["UserLogin"]
+                        <input class="input100" type="password" name="Sifre" placeholder="Şifrə">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <style>
+                        .login100-form-btn{
+                            cursor:pointer
+                        }
+                    </style>
+                    <div class="container-login100-form-btn">
+                        <input style="background:linear-gradient(#08804A,#185188)" class="login100-form-btn" type="submit" value="GİRİŞ" />
+                    </div>
+
+                    <div class="text-center p-t-12">
+                        <span style="color:white;" class="txt1">
+                            Unutmusuz
+                        </span>
+                        <a  class="txt21" href="/Users/RememberMe">
+                            Login / Şifrə ?
+                        </a>
+                    </div>
+
+                    <div class="text-center p-t-136">
+                        <style>
+                            .txt21 {
+                                color: white;
+                                margin-left: 5px;
+                            }
+
+                                .txt21:hover {
+                                    cursor: pointer;
+                                    color: forestgreen;
+                                }
+
+                            .txt5 {
+                                color: white;
+                            }
+
+                                .txt5:hover {
+                                    cursor: pointer;
+                                    color: forestgreen;
+                                }
+                        </style>
+                        <a class="txt5" href="/Users/IstifadeciOl">
+                            Qeydiyyatdan keç
+                            <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                        </a>
+                        <a class="txt5" href="/Users/MuellifOl">
+                            Müəllif ol
+                            <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </form>
+			</div>
+		</div>
+	</div>
+
+
+
+    <script src="~/PublicFront/magala-html/assets/js/jquery.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="~/PublicFront/Login_v1/vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="~/PublicFront/Login_v1/vendor/tilt/tilt.jquery.min.js"></script>
+	<script>
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+	<!--===============================================================================================-->
+	<script src="~/PublicFront/Login_v1/js/main.js"></script>
+
+</body>
+</html>

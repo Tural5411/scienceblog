@@ -1,0 +1,29 @@
+﻿@model IEnumerable<SonsuzBlog.Models.tbl_post>
+@using SonsuzBlog.Helper
+<aside class="widget popular-posts-widget">
+    <h4 class="widget-title"><span>Popular Post</span></h4>
+    <div class="widget-content">
+        @foreach (var x in Model)
+        {
+            <article class="post side-post">
+                <div class="thumb-wrap">
+                    <a href="/Post/@SeoHelper.ToSeoUrl(x.Baslig).ToLower()-@x.PostId">
+                        <img src="@x.tbl_sekil.Boyuk" alt="@x.Baslig">
+                    </a>
+                    <span class="count"><i class="far fa-star"></i></span>
+                </div><!--./ thumb-wrap -->
+                <div class="content-entry-wrap">
+                    <h3 class="entry-title">
+                        <a href="/Post/@SeoHelper.ToSeoUrl(x.Baslig).ToLower()-@x.PostId">@x.Baslig</a>
+                    </h3><!--./ entry-title -->
+                    <div class="entry-meta-content">
+                        <div class="entry-date">
+                            <span>@x.Tarixi.Value.ToShortDateString() </span>
+                        </div><!--./ entry-date -->
+                    </div><!--./ entry-meta-content -->
+                </div>
+            </article>
+        }
+        <!--./ end post -->
+    </div>
+</aside>

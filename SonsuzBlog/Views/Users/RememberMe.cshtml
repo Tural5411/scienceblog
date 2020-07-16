@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sonsuzbilgi - Giris</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/PublicFront/turalicon.ico" />
+    <link href="~/PublicFront/magala-html/assets/css/fontawesome.all.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/PublicFront/Login_v1/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/PublicFront/Login_v1/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/PublicFront/Login_v1/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/PublicFront/Login_v1/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/PublicFront/Login_v1/css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+
+    <div class="limiter">
+
+        <div style="background:url(/Upload/logback2.jpg) no-repeat,center;background-size:cover;" class="container-login100">
+            <div style="padding: 80px 130px 33px 95px; background:rgba(255, 255, 255, 0.32);" class="wrap-login100">
+                <div class="login100-pic js-tilt" data-tilt>
+                    <a href="/"><img src="~/PublicFront/magala-html/assets/infinite_for_tural-0.png" alt="IMG"></a>
+                </div>
+
+                <form action="/Users/RememberMe" method="post" enctype="multipart/form-data" class="login100-form validate-form">
+                    <span style="letter-spacing:2px; color:white; text-transform:uppercase;" class="login100-form-title">
+                        Xatirla meni
+                    </span>
+                    <div class="wrap-input100 validate-input" data-validate="Məsələn=tural123@gmail.com">
+                        @TempData["Remember"]
+                        <input class="input100" type="email" name="email" placeholder="Istifadeci maili">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+
+                        <input class="login100-form-btn" type="submit" value="GONDER" />
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/PublicFront/magala-html/assets/js/jquery.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/PublicFront/Login_v1/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/PublicFront/Login_v1/vendor/tilt/tilt.jquery.min.js"></script>
+    <script>
+        $('.js-tilt').tilt({
+            scale: 1.1
+        })
+    </script>
+    <!--===============================================================================================-->
+    <script src="~/PublicFront/Login_v1/js/main.js"></script>
+</body>
+</html>

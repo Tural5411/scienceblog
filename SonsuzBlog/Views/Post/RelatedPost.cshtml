@@ -1,0 +1,30 @@
+﻿@model SonsuzBlog.ViewModel.PostVm
+@using SonsuzBlog.Helper
+
+@foreach (var x in Model.posts)
+{
+    <div class="col-lg-4">
+        <article class="post hentry post-list post-list-small">
+            <div class="entry-thumb">
+                <figure class="thumb-wrap">
+                    <a href="/Post/@SeoHelper.ToSeoUrl(x.Baslig).ToLower()-@x.PostId">
+                        <img width="100" height="100" style="object-fit:cover;" src="@x.tbl_sekil.Boyuk" alt="@x.Baslig">
+                    </a>
+                </figure><!--./ thumb-wrap -->
+            </div><!--./ entry-thumb -->
+            <div class="content-entry-wrap">
+                <div class="entry-content">
+                    <h3 class="entry-title">
+                        <a href="/Post/@SeoHelper.ToSeoUrl(x.Baslig).ToLower()-@x.PostId">@x.Baslig</a>
+                    </h3><!--./ entry-title -->
+                </div><!--./ entry-content -->
+                <div class="entry-meta-content">
+                    <div class="entry-date">
+                        <span>@x.Tarixi.Value.ToShortDateString()</span>
+                    </div><!--./ entry-date -->
+                </div><!--./ entry-meta-content -->
+            </div><!--./ content-entry-wrap -->
+        </article>
+    </div>
+}
+

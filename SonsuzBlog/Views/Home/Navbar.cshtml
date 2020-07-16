@@ -1,0 +1,34 @@
+﻿@model SonsuzBlog.ViewModel.PostVm
+@using SonsuzBlog.Helper
+<nav class="menu">
+    <ul id="nav">
+        <li class="">
+            <a href="#">Ana Səhifə</a>
+        </li>
+        <li class="dropdown-trigger">
+            <a href="#">Kateqoriyalar</a>
+            <ul class="dropdown-content">
+                @foreach (var c in Model.categories)
+                {
+                    <li><a href="/Category/@SeoHelper.ToSeoUrl(c.Ad).ToLower()-@c.CategoryId">@c.Ad</a></li>
+                }
+
+            </ul>
+        </li>
+        <li class="dropdown-trigger">
+            <a href="#">Yazarlar</a>
+            <span class="menu-label new"><i style="padding:2px; font-size:12px" class="fas fa-marker"></i></span>
+            <ul class="dropdown-content">
+                @foreach (var m in Model.users)
+                {
+                    <li><a href="/Muellif/@SeoHelper.ToSeoUrl(m.Ad).ToLower()-@m.UserId">@m.Ad</a></li>
+                }
+            </ul>
+        </li>
+        <li><a href="#">Haqqımızda</a></li>
+        <li>
+            <a href="@Url.Action("Elaqe","Home")">Əlaqə</a>
+            <span class="menu-label"><i style="padding:2px; font-size:12px" class="fas fa-phone"></i></span>
+        </li>
+    </ul>
+</nav>

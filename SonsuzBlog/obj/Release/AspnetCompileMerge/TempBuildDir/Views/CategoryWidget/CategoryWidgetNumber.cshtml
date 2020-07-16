@@ -1,0 +1,14 @@
+﻿@model IEnumerable<SonsuzBlog.Models.tbl_category>
+<aside class="widget widget-categories">
+    <h4 class="widget-title"><span>Kateqoriyalar</span></h4>
+    <div class="widget-content">
+        <ul>
+          @foreach (var x in Model)
+          {
+            <li class="cat-item">
+                <a href="/CategoryWidget/Index/@x.CategoryId">@x.Ad<span class="count">@x.tbl_post.Count</span></a>
+            </li>
+          }
+        </ul>
+    </div>
+</aside>

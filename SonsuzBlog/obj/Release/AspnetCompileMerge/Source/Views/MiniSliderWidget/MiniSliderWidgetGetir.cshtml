@@ -1,0 +1,38 @@
+﻿@model IEnumerable<SonsuzBlog.Models.tbl_post>
+<aside class="widget tb-posts-slide-widget">
+    <div class="widget-content">
+        <div id="post-widget-carousel" class="owl-carousel carousel-nav-circle">
+            <!--~~~~~ Start Post ~~~~~-->
+            @foreach (var x in Model)
+            {
+                <article class="post hentry post-grid style-five">
+                    <div class="entry-thumb">
+                        <figure class="thumb-wrap">
+                            <a href="Post/PostDetail/@x.PostId">
+                                <img src="@x.tbl_sekil.Boyuk" alt="@x.Baslig">
+                            </a>
+                        </figure><!--./ thumb-wrap -->
+                    </div><!--./ entry-thumb -->
+                    <div class="content-entry-wrap">
+                        <div class="entry-content">
+                            <h3 class="entry-title">
+                                <a href="Post/PostDetail/@x.PostId">
+                                    @x.Baslig
+                                </a>
+                            </h3><!--./ entry-title -->
+                        </div><!--./ entry-content -->
+                        <div class="entry-meta-content">
+                            <div class="entry-date">
+                                <span>@x.Tarixi.Value.ToShortDateString()</span>
+                            </div><!--./ entry-date -->
+                            <div class="entry-category">
+                                <a class="/CategoryWidget/Index/@x.tbl_category.CategoryId" href="#">@x.tbl_category.Ad</a>
+                            </div><!--./ entry-category -->
+                        </div><!--./ thumb-wrap -->
+                    </div><!--./ content-entry-wrap -->
+                </article>
+            }
+            <!--~./ end post ~-->
+        </div>
+    </div>
+</aside>

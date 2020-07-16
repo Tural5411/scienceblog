@@ -1,0 +1,91 @@
+﻿@model SonsuzBlog.Models.tbl_post
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbl_post</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_category.Ad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_category.Ad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_sekil.Kicik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_sekil.Kicik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_users.Ad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_users.Ad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Baslig)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Baslig)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Context)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Context)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tarixi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tarixi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Baxis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Baxis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Beyenme)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Beyenme)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keyword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keyword)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PostId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

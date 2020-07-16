@@ -1,0 +1,104 @@
+﻿@model SonsuzBlog.Models.tbl_post
+@{
+    ViewBag.Title = "Meqale Yaz";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_LayoutAdmin.cshtml";
+}
+<script src="~/Areas/AdminPanel/Scripts/ckeditor4/ckeditor.js"></script>
+<style>
+    .bootstrap-tagsInput {
+        width: 100%;
+    }
+</style>
+@using (Html.BeginForm("MeqaleYaz", "Meqale", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+<div class="form-horizontal">
+    <h4>Yeni Post</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Başlıq</label>
+        <div class="col-md-10">
+            <input class="form-control" type="text" name="Baslig" placeholder="Başlıq yaz" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Etiket yaz</label>
+        <div class="col-md-10">
+            <input type="text" data-role="tagsInput" name="etiket" class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Mətn</label>
+        <div class="col-md-10">
+            @Html.TextArea("Context")
+        </div>
+        <script type="text/javascript">
+            var editor = CKEDITOR.instances['Context'];
+            if (editor) { editor.destroy(true); }
+            CKEDITOR.replace('Context'), {
+                enterMode: CKEDITOR.ENTER_BR,
+            };
+        </script>
+    </div>
+
+
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Kategoriya seç</label>
+        <div class="col-md-10">
+            @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Açar sözlər</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Keyword, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Keyword, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Qapaq Şəkli</label>
+        <div class="col-md-10">
+            <input class="form-control-file" id="photoInp" type="file" name="sekil" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Əlavə et" class="btn btn-success" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="photolist"></div>
+    </div>
+
+</div>
+}
+@section adScripts{
+    <script type="text/javascript">
+        $("#photoInp").on("change", function (a) {
+            let photoList = a.target.files;
+            debugger;
+            var cont = $("<div class='container - fluid'></div>");
+            cont.append("<div class='row'></div>")
+            for (var img of photoList) {
+                if (img.type.match("image*")) {
+                    var file = new FileReader();
+                    file.onload = function (read) {
+                        $(".photolist").append(`<div class="col-lg-8">
+                <img  style="object-fit:cover;" class="img-thumbnail" src="${read.target.result}"/>
+            <br>
+                </div>`)
+                    }
+                    file.readAsDataURL(img);
+                }
+            }
+        })
+    </script>
+}

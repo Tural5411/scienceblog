@@ -1,0 +1,82 @@
+﻿@model IEnumerable<SonsuzBlog.Models.tbl_post>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tbl_category.Ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tbl_sekil.Kicik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tbl_users.Ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Baslig)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Context)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tarixi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Baxis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Beyenme)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keyword)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_category.Ad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_sekil.Kicik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_users.Ad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Baslig)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Context)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tarixi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Baxis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Beyenme)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Keyword)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PostId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PostId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PostId })
+        </td>
+    </tr>
+}
+
+</table>

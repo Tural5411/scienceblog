@@ -1,0 +1,91 @@
+﻿@model IEnumerable<SonsuzBlog.Models.tbl_category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="font-size:26px; letter-spacing:3px; font-weight:900">KATEQORİYALAR</h2>
+<script>
+    $(document).ready(function () {
+        $('#myTable').dataTable(
+
+            {
+                "language": {
+                    "sEmptyTable": "Cədvəldə heç bir məlumat yoxdur",
+                    "sInfo": " _TOTAL_ Nəticədən _START_ - _END_ Arası Nəticələr",
+                    "sInfoEmpty": "Nəticə Yoxdur",
+                    "sInfoFiltered": "( _MAX_ Nəticə İçindən Tapılanlar)",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ",",
+                    "sLengthMenu": "Səhifədə _MENU_ Nəticə Göstər",
+                    "sLoadingRecords": "Yüklənir...",
+                    "sProcessing": "Gözləyin...",
+                    "sSearch": "Axtarış:",
+                    "sZeroRecords": "Nəticə Tapılmadı.",
+                    "oPaginate": {
+                        "sFirst": "İlk",
+                        "sLast": "Axırıncı",
+                        "sNext": "Sonraki",
+                        "sPrevious": "Öncəki"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": sütunu artma sırası üzərə aktiv etmək",
+                        "sSortDescending": ": sütunu azalma sırası üzərə aktiv etmək"
+                    }
+                }
+            }
+
+        );
+
+
+    })
+</script>
+<p>
+    @Html.ActionLink("Yeni Kateqoriya", "Create","Kateqoriya", new { @class = "btn btn-success" })
+</p>
+<table id="myTable" class="table">
+    <thead>
+        <tr>
+            <th>
+                <label>Şəkil</label>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aciqlama)
+            </th>
+            <th>
+                <label>Açar sözlər(SEO)</label>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img style="border-radius:0%; width:150px; height:100px;" src="@Html.DisplayFor(modelItem => item.tbl_sekil.Boyuk)" alt="Alternate Text" />
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Aciqlama)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Keyword)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CategoryId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CategoryId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CategoryId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

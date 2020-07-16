@@ -1,0 +1,118 @@
+﻿@{ 
+    var fresh = ViewBag.Latest;
+    var trend = ViewBag.Trending;
+}
+@using SonsuzBlog.Helper
+<div class="top-stories-block top-stories-one bg-gray ptb-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="section-header">
+                    <h2 class="section-title">Top Məqalələr</h2>
+                </div>
+            </div><!--./ section-header -->
+
+            <div class="col-lg-6">
+                <div class="filter-tab-area">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li>
+                            <a class="active" data-toggle="tab" href="#blog_latest" role="tab"><i class="fa fa-clock"></i>Yeni</a>
+                        </li>
+                        <li>
+                            <a data-toggle="tab" href="#blog_trending" role="tab"><i class="fab fa-gripfire"></i>Trend</a>
+                        </li>
+                    </ul>
+                </div><!--~./ end filter tab area ~-->
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="tab-content filter-tab-content">
+                    <!--~~~~~ Start Tab Pane ~~~~~-->
+                    <div class="tab-pane fade show active" id="blog_latest" role="tabpanel">
+                        <div class="row">
+                            <!--~~~~~ Start Post ~~~~~-->
+                            @foreach (var x in fresh)
+                            {
+                                <div class="col-lg-4 col-md-6">
+                                    <article class="post hentry post-list post-list-small">
+                                        <div class="entry-thumb">
+                                            <figure class="thumb-wrap">
+                                                <a href="/Post/@SeoHelper.ToSeoUrl(x.Baslig).ToLower()-@x.PostId">
+                                                    <img src="@x.tbl_sekil.Boyuk" alt="@x.Baslig">
+                                                </a>
+                                                <div class="featured-badge-list">
+                                                    <a class="featured" href="#">
+                                                        <span class="fa fa-bolt"></span>
+                                                    </a>
+                                                </div><!--./ featured-badge-list -->
+                                            </figure><!--./ thumb-wrap -->
+                                        </div><!--./ entry-thumb -->
+                                        <div class="content-entry-wrap">
+                                            <div class="entry-content">
+                                                <h3 class="entry-title">
+                                                    <a href="/Post/@SeoHelper.ToSeoUrl(x.Baslig).ToLower()-@x.PostId">@x.Baslig</a>
+                                                </h3><!--./ entry-title -->
+                                            </div><!--./ entry-content -->
+                                            <div class="entry-meta-content">
+                                                <div class="entry-date">
+                                                    <span>@x.Tarixi.ToShortDateString() </span>
+                                                </div><!--./ entry-date -->
+                                                <div class="entry-category">
+                                                    <a class="cat" href="/Category/@SeoHelper.ToSeoUrl(x.tbl_category.Ad).ToLower()-@x.CategoryId">@x.tbl_category.Ad</a>
+                                                </div><!--./ entry-category -->
+                                            </div><!--./ entry-meta-content -->
+                                        </div><!--./ content-entry-wrap -->
+                                    </article>
+                                </div>
+                            }
+                            <!--~./ end post ~-->
+                        </div>
+                    </div><!--~./ end tab pane ~-->
+                    <!--~~~~~ Start Tab Pane ~~~~~-->
+                    <div class="tab-pane fade" id="blog_trending" role="tabpanel">
+                        <div class="row">
+                            <!--~~~~~ Start Post ~~~~~-->
+                            @foreach (var x in trend)
+                            {
+                                <div class="col-lg-4 col-md-6">
+                                    <article class="post hentry post-list post-list-small">
+                                        <div class="entry-thumb">
+                                            <figure class="thumb-wrap">
+                                                <a href="/Post/@SeoHelper.ToSeoUrl(x.Baslig).ToLower()-@x.PostId">
+                                                    <img src="@x.tbl_sekil.Boyuk" alt="@x.Baslig">
+                                                </a>
+                                                <div class="featured-badge-list">
+                                                    <a class="trending" href="#">
+                                                        <span class="fab fa-gripfire"></span>
+                                                    </a>
+                                                </div><!--./ featured-badge-list -->
+                                            </figure> <!--./ thumb-wrap -->
+                                        </div><!--./ entry-thumb -->
+                                        <div class="content-entry-wrap">
+                                            <div class="entry-content">
+                                                <h3 class="entry-title">
+                                                    <a href="/Post/@SeoHelper.ToSeoUrl(x.Baslig).ToLower()-@x.PostId">@x.Baslig</a>
+                                                </h3><!--./ entry-title -->
+                                            </div><!--./ entry-content -->
+                                            <div class="entry-meta-content">
+                                                <div class="entry-date">
+                                                    <span>@x.Tarixi.ToShortDateString() </span>
+                                                </div><!--./ entry-date -->
+                                                <div class="entry-category">
+                                                    <a class="cat" href="/Category/@SeoHelper.ToSeoUrl(x.tbl_category.Ad)-@x.CategoryId">@x.tbl_category.Ad</a>
+                                                </div><!--./ entry-category -->
+                                            </div><!--./ entry-meta-content -->
+                                        </div><!--./ content-entry-wrap -->
+                                    </article>
+                                </div>
+                            }
+                            <!--~./ end post ~-->
+                        </div>
+                    </div><!--~./ end tab pane ~-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

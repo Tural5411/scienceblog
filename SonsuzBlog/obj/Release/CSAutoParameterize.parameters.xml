@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="SonsuzBlogDB-Web.config Connection String" description="SonsuzBlogDB Connection String used in web.config by the application to access the database." defaultValue="Data Source=SQL5050.site4now.net;Initial Catalog=DB_A4F2AC_sonsuzdata;User ID=DB_A4F2AC_sonsuzdata_admin;Password=dilman99;MultipleActiveResultSets=True;Application Name=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\USER\\source\\repos\\SonsuzBlog\\SonsuzBlog\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SonsuzBlogDB']/@connectionString" />
+  </parameter>
+</parameters>

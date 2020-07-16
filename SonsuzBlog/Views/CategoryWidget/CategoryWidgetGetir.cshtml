@@ -1,0 +1,20 @@
+﻿@model IEnumerable<SonsuzBlog.Models.tbl_category>
+@using SonsuzBlog.Helper
+<aside class="widget bt-widget-categories">
+    <div class="widget-content">
+        @foreach (var x in Model)
+        {
+        <a title="@x.Ad" href="/Category/@SeoHelper.ToSeoUrl(x.Ad).ToLower()-@x.CategoryId" class="cat-item">
+            <div class="cat-item-inner">
+                <div class="cat-thumb">
+                    <img width="140" height="83" style="object-fit:cover;" src="@x.tbl_sekil.Boyuk" alt="@x.Ad">
+                </div>
+                <div class="cat-name">
+                    <span>@x.Ad</span>
+                </div>
+            </div>
+        </a>
+        }
+        <!--~./ cat-item ~-->
+    </div>
+</aside>

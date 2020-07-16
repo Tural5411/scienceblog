@@ -1,0 +1,103 @@
+﻿@model IEnumerable<SonsuzBlog.Models.tbl_post>
+
+@{
+
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2 style="font-weight:900;letter-spacing:3px">POSTLAR</h2>
+<script>
+    $(document).ready(function () {
+        $('#myTable').dataTable(
+
+            {
+                "language":{
+                    "sEmptyTable": "Cədvəldə heç bir məlumat yoxdur",
+                    "sInfo": " _TOTAL_ Nəticədən _START_ - _END_ Arası Nəticələr",
+                    "sInfoEmpty": "Nəticə Yoxdur",
+                    "sInfoFiltered": "( _MAX_ Nəticə İçindən Tapılanlar)",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ",",
+                    "sLengthMenu": "Səhifədə _MENU_ Nəticə Göstər",
+                    "sLoadingRecords": "Yüklənir...",
+                    "sProcessing": "Gözləyin...",
+                    "sSearch": "Axtarış:",
+                    "sZeroRecords": "Nəticə Tapılmadı.",
+                    "oPaginate": {
+                        "sFirst": "İlk",
+                        "sLast": "Axırıncı",
+                        "sNext": "Sonraki",
+                        "sPrevious": "Öncəki"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": sütunu artma sırası üzərə aktiv etmək",
+                        "sSortDescending": ": sütunu azalma sırası üzərə aktiv etmək"
+                    }
+                }
+            }
+
+        );
+      
+        
+    })
+</script>
+<p>
+    @Html.ActionLink("POST ƏLAVƏ ET", "MeqaleYaz", "Meqale", new { @class = "btn btn-success" })
+</p>
+<table id="myTable" class="table">
+    <thead >
+        <tr>
+            <th>
+                <label style="text-transform:uppercase;font-size:large; font-weight:900; ">Kategoriya</label>
+            </th>
+            <th>
+                <label style="text-transform:uppercase;font-size:large ; font-weight:900; ">Şəkil</label>
+            </th>
+            <th>
+                <label style="text-transform:uppercase;font-size:large ; font-weight:900;">Yazar</label>
+            </th>
+            <th>
+                <label style="text-transform:uppercase;font-size:large; font-weight:900;">Başlıq</label>
+            </th>
+            <th>
+                <label style="text-transform:uppercase;font-size:large; font-weight:900;">Tarixi</label>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tbl_category.Ad)
+                </td>
+                <td>
+                    <img style="width:150px; height:100px; border-radius:0%;" class="img-thumbnail" src="@Html.DisplayFor(modelItem => item.tbl_sekil.Boyuk)" alt="Alternate Text" />
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tbl_users.Ad)
+                </td>
+                <td>
+                    <label>@item.Baslig.Substring(0, item.Baslig.Length > 40 ? 40 : item.Baslig.Length)</label>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tarixi)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PostId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.PostId }) |
+                    <a href="@Url.Action("Delete","Meqale", new { id = item.PostId})">SIL</a>
+                </td>
+
+
+
+            </tr>
+        }
+
+    </tbody>
+
+   
+</table>
